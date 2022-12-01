@@ -5,6 +5,7 @@
 
 int main()
 {
-	std::cout << "Hello CMake." << std::endl;
+	aoc::d1();
+
 	return 0;
 }

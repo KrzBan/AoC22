@@ -5,4 +5,6 @@
 
 #include <iostream>
 
+#include "lib/d1/d1.h"
+
 // TODO: Reference additional headers your program requires here.
