@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <ranges>
 #include <numeric>
+#include <map>
 
 namespace aoc {
 
