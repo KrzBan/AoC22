@@ -11,6 +11,17 @@ namespace aoc {
 		Scissors
 	};
 
+	enum class Outcome {
+		Lose,
+		Draw,
+		Win
+	};
+
+	std::map<char, Outcome> charToOutcome = {
+		{'X', Outcome::Lose},
+		{'Y', Outcome::Draw},
+		{'Z', Outcome::Win},
+	};
 
 	std::map<char, Pick> charToPick = {
 		{'A', Pick::Rock}, {'X', Pick::Rock},
@@ -30,10 +41,25 @@ namespace aoc {
 		{Pick::Scissors, Pick::Paper}
 	};
 
+	std::map<Pick, Pick> pickLose = {
+		{Pick::Scissors, Pick::Rock},
+		{Pick::Rock, Pick::Paper},
+		{Pick::Paper, Pick::Scissors}
+	};
+
 	uint32_t GetBeatScore(Pick lhs, Pick rhs) {
 		if (lhs == rhs) return 3;
 		if (pickBeat.at(lhs) == rhs) return 6;
 		return 0;
+	}
+
+	Pick GetDesiredPick(Pick enemy, Outcome oc) {
+		switch (oc) {
+		case Outcome::Draw: return enemy; break;
+		case Outcome::Lose: return pickBeat.at(enemy); break;
+		case Outcome::Win: return pickLose.at(enemy); break;
+		}
+		throw std::runtime_error("GetDesiredPick(): Unknown Outcome!");
 	}
 
 	void d2() {
@@ -48,13 +74,13 @@ namespace aoc {
 		while (std::getline(input, line)) {
 
 			std::stringstream ss{ line };
+			char outcomeChar{ 0 }, opponentChar{ 0 };
+			ss >> opponentChar >> outcomeChar;
 
-			char me, opponent;
-			input >> opponent >> me;
+			Outcome desiredOutcome = charToOutcome.at(outcomeChar);
+			Pick opponentPick = charToPick.at(opponentChar);
 
-			Pick myPick = charToPick.at(me);
-			Pick opponentPick = charToPick.at(opponent);
-
+			Pick myPick = GetDesiredPick(opponentPick, desiredOutcome);
 			myScore += pickToScore.at(myPick);
 			myScore += GetBeatScore(myPick, opponentPick);
 		}
