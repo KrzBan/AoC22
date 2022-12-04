@@ -9,6 +9,8 @@
 #include <ranges>
 #include <numeric>
 #include <map>
+#include <charconv>
+#include <cassert>
 
 namespace aoc {
 
