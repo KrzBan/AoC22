@@ -7,5 +7,6 @@
 
 #include "lib/d1/d1.h"
 #include "lib/d2/d2.h"
+#include "lib/d3/d3.h"
 
 // TODO: Reference additional headers your program requires here.
