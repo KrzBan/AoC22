@@ -9,5 +9,6 @@
 #include "lib/d2/d2.h"
 #include "lib/d3/d3.h"
 #include "lib/d4/d4.h"
+#include "lib/d5/d5.h"
 
 // TODO: Reference additional headers your program requires here.

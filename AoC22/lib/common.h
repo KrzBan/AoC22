@@ -11,6 +11,7 @@
 #include <map>
 #include <charconv>
 #include <cassert>
+#include <deque>
 
 namespace aoc {
 

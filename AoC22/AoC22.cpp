@@ -5,7 +5,7 @@
 
 int main()
 {
-	aoc::d4();
+	aoc::d5();
 
 	return 0;
 }
