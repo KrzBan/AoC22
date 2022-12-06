@@ -12,6 +12,7 @@
 #include <charconv>
 #include <cassert>
 #include <deque>
+#include <set>
 
 namespace aoc {
 
