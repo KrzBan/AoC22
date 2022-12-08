@@ -12,5 +12,6 @@
 #include "lib/d5/d5.h"
 #include "lib/d6/d6.h"
 #include "lib/d7/d7.h"
+#include "lib/d8/d8.h"
 
 // TODO: Reference additional headers your program requires here.
