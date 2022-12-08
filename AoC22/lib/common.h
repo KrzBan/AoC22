@@ -13,6 +13,8 @@
 #include <cassert>
 #include <deque>
 #include <set>
+#include <variant>
+#include <unordered_map>
 
 namespace aoc {
 
