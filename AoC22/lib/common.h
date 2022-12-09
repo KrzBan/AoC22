@@ -15,7 +15,8 @@
 #include <set>
 #include <variant>
 #include <unordered_map>
-
+#include <unordered_set>
+#include <array>
 namespace aoc {
 
 	const std::string inputPath = "lib/inputs/";

@@ -14,17 +14,14 @@ target_sources(AoC22Lib PRIVATE
 	"d5/d5.cpp" "d5/d5.h"
 	"d6/d6.cpp" "d6/d6.h"
 	"d7/d7.cpp" "d7/d7.h" 
-	"d8/d8.cpp" "d8/d8.h")
+	"d8/d8.cpp" "d8/d8.h" 
+	"d9/d9.cpp" "d9/d9.h")
 target_include_directories(AoC22Lib PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-configure_file("inputs/input01.txt" "inputs/input01.txt" COPYONLY)
-configure_file("inputs/input02.txt" "inputs/input02.txt" COPYONLY)
-configure_file("inputs/input03.txt" "inputs/input03.txt" COPYONLY)
-configure_file("inputs/input04.txt" "inputs/input04.txt" COPYONLY)
-configure_file("inputs/input05.txt" "inputs/input05.txt" COPYONLY)
-configure_file("inputs/input06.txt" "inputs/input06.txt" COPYONLY)
-configure_file("inputs/input07.txt" "inputs/input07.txt" COPYONLY)
-configure_file("inputs/input08.txt" "inputs/input08.txt" COPYONLY)
+add_custom_target(copy_inputs
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_LIST_DIR}/inputs ${CMAKE_CURRENT_BINARY_DIR}/inputs
+)
+add_dependencies(AoC22Lib copy_inputs)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET AoC22Lib PROPERTY CXX_STANDARD 20)
