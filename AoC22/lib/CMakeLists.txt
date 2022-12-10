@@ -15,7 +15,9 @@ target_sources(AoC22Lib PRIVATE
 	"d6/d6.cpp" "d6/d6.h"
 	"d7/d7.cpp" "d7/d7.h" 
 	"d8/d8.cpp" "d8/d8.h" 
-	"d9/d9.cpp" "d9/d9.h")
+	"d9/d9.cpp" "d9/d9.h" 
+	"d10/d10.h" "d10/d10.cpp"
+)
 target_include_directories(AoC22Lib PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_custom_target(copy_inputs
