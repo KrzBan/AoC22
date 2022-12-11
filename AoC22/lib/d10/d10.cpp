@@ -6,17 +6,17 @@ namespace aoc {
 
 	class NoOp {
 	public:
-		uint32_t counter{1};
+		uint32_t counter{ 1 };
 	};
 
 	class AddOp {
 	private:
 		int64_t value{};
 	public:
-		uint32_t counter{2};
+		uint32_t counter{ 2 };
 	public:
-		AddOp(int64_t value) : value { value } {}
-		int64_t GetValue() const { return value;  }
+		AddOp(int64_t value) : value{ value } {}
+		int64_t GetValue() const { return value; }
 	};
 
 	template<typename Op>
@@ -30,7 +30,7 @@ namespace aoc {
 
 	class Cpu {
 	private:
-		int64_t reg{1};
+		int64_t reg{ 1 };
 		std::vector<CpuOp> ops{};
 
 	public:
@@ -42,19 +42,19 @@ namespace aoc {
 			for (auto& op : ops) {
 				bool reachedZero = false;
 				std::visit([&](auto& op) { --op.counter; if (op.counter == 0) reachedZero = true; }, op);
-				
+
 				if (reachedZero == false) continue;
 
 				std::visit(overloaded{
-					[this](const NoOp& op) { },
+					[this](const NoOp& op) {},
 					[this](const AddOp& op) { reg += op.GetValue(); }
 					}, op);
 			}
 
 			std::erase_if(ops, [](const CpuOp& op) {
 				bool reachedZero = false;
-				std::visit([&](auto& op) { if (op.counter == 0) reachedZero = true; }, op);
-				return reachedZero;
+			std::visit([&](auto& op) { if (op.counter == 0) reachedZero = true; }, op);
+			return reachedZero;
 				});
 		}
 	};
@@ -86,10 +86,10 @@ namespace aoc {
 			while (cpu.Empty() == false) {
 
 				auto pos = cpu.GetRegistry();
-				char c = std::abs(pos - (cycle%40)) <= 1 ? '#' : '.';
+				char c = std::abs(pos - (cycle % 40)) <= 1 ? '#' : '.';
 				line.push_back(c);
 
-				if ( (cycle + 1)  % 40 == 0) {
+				if ((cycle + 1) % 40 == 0) {
 					for (const auto& c : line) {
 						std::cout << c;
 					}
