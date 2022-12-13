@@ -18,6 +18,7 @@ target_sources(AoC22Lib PRIVATE
 	"d9/d9.cpp" "d9/d9.h" 
 	"d10/d10.h" "d10/d10.cpp"
 	"d11/d11.h" "d11/d11.cpp"
+	"d12/d12.h" "d12/d12.cpp"
 )
 target_include_directories(AoC22Lib PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 

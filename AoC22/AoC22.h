@@ -16,5 +16,6 @@
 #include "lib/d9/d9.h"
 #include "lib/d10/d10.h"
 #include "lib/d11/d11.h"
+#include "lib/d12/d12.h"
 
 // TODO: Reference additional headers your program requires here.
